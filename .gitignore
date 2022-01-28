@@ -1,2 +1,4 @@
 bot-env
 /bot/vars.py
+/bot/test.py
+/bot/__pycache__*

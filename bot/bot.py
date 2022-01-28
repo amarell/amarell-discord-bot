@@ -1,9 +1,20 @@
 # This example requires the 'members' privileged intents
 
 import discord
+import requests
+import pprint
+import json
 from discord.ext import commands
 import random
 import vars
+
+
+
+
+def jprint(obj):
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)
+
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -12,7 +23,7 @@ There are a number of utility commands being showcased here.'''
 
 intents = discord.Intents().all()
 
-bot = commands.Bot(command_prefix='?', description=description, intents=intents)
+bot = commands.Bot(command_prefix='!', description=description, intents=intents)
 
 @bot.event
 async def on_ready():
@@ -20,6 +31,8 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
+
 
 @bot.command()
 async def add(ctx, left: int, right:int):
@@ -67,6 +80,25 @@ async def check_spotify_activity(ctx, *, member: discord.Member):
     if listening == None:
         await ctx.send("The user is currently not listening to anything!")
     else:
-        await ctx.send("{0.name} is listening to: {1[0].title} by {1[0].artist}".format(member, listening))
+        new_embed = discord.Embed()
+        message = member.display_name + " is listening to " + listening[0].title + " by " + listening[0].artist
+        
+        artists = listening[0].artist.split("; ")
+        print(artists)
+
+        response = requests.get("https://api.lyrics.ovh/v1/" + artists[0] + "/" + listening[0].title)
+        lyrics_json = json.dumps(response.json(), sort_keys=True, indent=4)
+        lyrics = json.loads(lyrics_json)
+        print(lyrics)
+
+        new_embed.set_image(url = listening[0].album_cover_url)
+        new_embed.add_field(name="Activity", value=message)
+
+        await ctx.send(embed=new_embed)
+
+        if "error" in lyrics.keys():
+            await ctx.send("Error trying to find lyrics!")
+        else:
+            await ctx.send("Lyrics:\n```"+lyrics["lyrics"] + "```")
 
 bot.run(vars.token)

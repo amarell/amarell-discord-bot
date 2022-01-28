@@ -3,6 +3,7 @@
 import discord
 from discord.ext import commands
 import random
+import vars
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -68,4 +69,4 @@ async def check_spotify_activity(ctx, *, member: discord.Member):
     else:
         await ctx.send("{0.name} is listening to: {1[0].title} by {1[0].artist}".format(member, listening))
 
-bot.run('Nzk3NjA5MTc0NjQ0NDI0NzE0.X_o9bg.dX4_nkNYem45L01kdwQgm8Gqdow')
+bot.run(vars.token)

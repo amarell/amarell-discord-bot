@@ -7,14 +7,8 @@ import json
 from discord.ext import commands
 import random
 import vars
-
-
-
-
-def jprint(obj):
-    text = json.dumps(obj, sort_keys=True, indent=4)
-    print(text)
-
+import random
+import string
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -76,29 +70,50 @@ async def joined(ctx, *, member: discord.Member):
 async def check_spotify_activity(ctx, *, member: discord.Member):
     """Checks user's current Spotify activity!"""
     listening = member.activities
-
-    if listening == None:
-        await ctx.send("The user is currently not listening to anything!")
-    else:
-        new_embed = discord.Embed()
-        message = member.display_name + " is listening to " + listening[0].title + " by " + listening[0].artist
-        
-        artists = listening[0].artist.split("; ")
-        print(artists)
-
-        response = requests.get("https://api.lyrics.ovh/v1/" + artists[0] + "/" + listening[0].title)
-        lyrics_json = json.dumps(response.json(), sort_keys=True, indent=4)
-        lyrics = json.loads(lyrics_json)
-        print(lyrics)
-
-        new_embed.set_image(url = listening[0].album_cover_url)
-        new_embed.add_field(name="Activity", value=message)
-
-        await ctx.send(embed=new_embed)
-
-        if "error" in lyrics.keys():
-            await ctx.send("Error trying to find lyrics!")
+    try:
+        if listening == None:
+            await ctx.send("The user is currently not listening to anything!")
         else:
-            await ctx.send("Lyrics:\n```"+lyrics["lyrics"] + "```")
+            new_embed = discord.Embed()
+            message = member.display_name + " is listening to " + listening[0].title + " by " + listening[0].artist
+            
+            artists = listening[0].artist.split("; ")
+
+            response = requests.get("https://api.lyrics.ovh/v1/" + artists[0] + "/" + listening[0].title)
+            lyrics_json = json.dumps(response.json(), sort_keys=True, indent=4)
+            lyrics = json.loads(lyrics_json)
+
+            new_embed.set_image(url = listening[0].album_cover_url)
+            new_embed.add_field(name="Activity", value=message)
+
+            await ctx.send(embed=new_embed)
+
+            if "error" in lyrics.keys():
+                await ctx.send("Error trying to find lyrics!")
+            else:
+                await ctx.send("Lyrics:\n```"+lyrics["lyrics"] + "```")
+    except Exception as err:
+        await ctx.send(err)
+@bot.command()
+async def generate_password(ctx, length: int = None):
+    try:
+        if(length is None):
+            await ctx.send("The proper usage is: \n```generate_password <int>```")
+        elif(isinstance(length, int)):
+            chars = string.ascii_letters
+            digits = string.digits
+            punct = string.punctuation
+
+            all = chars + digits + punct
+
+            temp = random.sample(all, length)
+            password = "".join(temp)
+
+            await ctx.send("The generated password is:\n" + "```" + password + "```")
+        else:
+            await ctx.send("The proper usage is: \n```generate_password <int>```")
+    except Exception as err:
+        await ctx.send(err)
+
 
 bot.run(vars.token)

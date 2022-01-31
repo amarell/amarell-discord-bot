@@ -11,8 +11,11 @@ There are a number of utility commands being showcased here.'''
 
 intents = discord.Intents().all()
 
+# Initializing the bot
 bot = commands.Bot(command_prefix='-', description=description, intents=intents)
+# Here we are going to add all the extensions (external .py files)
 bot.load_extension('bot_commands')
+bot.load_extension('wiki')
 
 @bot.event
 async def on_ready():

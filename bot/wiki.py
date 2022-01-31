@@ -8,6 +8,7 @@ class Wiki(commands.Cog):
 
     @commands.command()
     async def lookup(self, ctx, query: str = None):
+        """Looks up an article on wikipedia"""
         if(query is None):
             await ctx.send("Proper usage:\n```lookup <query>```")
             return

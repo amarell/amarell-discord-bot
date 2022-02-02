@@ -27,7 +27,7 @@ class Reddit(commands.Cog):
         random_wallpaper = random.choice(wallpapers)
 
         embed = discord.Embed(
-                title="Wallpapers from r/wallpapers",
+                title=random_wallpaper.title,
                 colour=discord.Colour.orange(), 
                 url="https://www.reddit.com" + random_wallpaper.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_wallpaper.created_utc)
@@ -54,7 +54,7 @@ class Reddit(commands.Cog):
         random_wallpaper = random.choice(wallpapers)
 
         embed = discord.Embed(
-                title="Wallpapers from r/wallpapers",
+                title=random_wallpaper.title,
                 colour=discord.Colour.orange(), 
                 url="https://www.reddit.com" + random_wallpaper.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_wallpaper.created_utc)
@@ -81,7 +81,7 @@ class Reddit(commands.Cog):
         random_artwork = random.choice(artworks)
 
         embed = discord.Embed(
-                title="Artworks from r/art",
+                title=random_artwork.title,
                 colour=discord.Colour.dark_gold(), 
                 url="https://www.reddit.com" + random_artwork.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_artwork.created_utc)
@@ -112,7 +112,7 @@ class Reddit(commands.Cog):
         random_fresh_meme = random.choice(fresh_memes)
 
         embed = discord.Embed(
-                title="Memes from r/memes",
+                title=random_fresh_meme.title,
                 colour=discord.Colour.dark_gold(), 
                 url="https://www.reddit.com" + random_fresh_meme.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_fresh_meme.created_utc)
@@ -142,7 +142,7 @@ class Reddit(commands.Cog):
         random_horsey_meme = random.choice(horsey_memes)
 
         embed = discord.Embed(
-                title="Memes from r/AnarchyChess",
+                title=random_horsey_meme.title,
                 colour=discord.Colour.dark_gold(), 
                 url="https://www.reddit.com" + random_horsey_meme.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_horsey_meme.created_utc)
@@ -172,7 +172,7 @@ class Reddit(commands.Cog):
         random_whenthe_meme = random.choice(whenthe_memes)
 
         embed = discord.Embed(
-                title="Memes from r/whenthe",
+                title=random_whenthe_meme.title,
                 colour=discord.Colour.dark_gold(), 
                 url="https://www.reddit.com" + random_whenthe_meme.permalink, 
                 timestamp=datetime.datetime.utcfromtimestamp(random_whenthe_meme.created_utc)

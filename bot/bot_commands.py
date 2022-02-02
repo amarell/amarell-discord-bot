@@ -69,6 +69,25 @@ class RandomLibraryStuff(commands.Cog):
         for x in range(times):
             await ctx.send(content)
 
+    @commands.command()
+    async def guess(self, ctx, number: int):
+        """ Guess a random number from 1 to 6. """
+        value = random.randint(1, 6)
+        
+        async def tick(ctx, value):
+            emoji = '\N{WHITE HEAVY CHECK MARK}' if value else '\N{CROSS MARK}'
+            try:
+                # this will react to the command author's message
+                await ctx.message.add_reaction(emoji)
+            except discord.HTTPException:
+                # sometimes errors occur during this, for example
+                # maybe you dont have permission to do that
+                # we dont mind, so we can just ignore them
+                pass
+
+        await tick(ctx, number == value)
+
+
 class ActivityCheck(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

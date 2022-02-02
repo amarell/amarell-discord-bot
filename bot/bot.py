@@ -6,6 +6,7 @@ from discord.ext import commands
 import vars
 import asyncpraw
 import random
+import os
 
 reddit = asyncpraw.Reddit(
     client_id="zRz7g1nCkdYbL8954UCong",
@@ -88,4 +89,4 @@ async def nature_wallpaper(ctx):
 
     await ctx.send(content="Here is your random wallpaper:", embed=embed)
     
-bot.run(vars.token)
+bot.run(os.environ["discord-api-token"])

@@ -66,7 +66,7 @@ class Reddit(commands.Cog):
         await ctx.send(content="Here is your random wallpaper:", embed=embed)
 
     @commands.command()
-    async def testcommand(self, ctx):
+    async def art(self, ctx):
         """Displays random art posts from reddit!"""
         artworks = []
 

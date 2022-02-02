@@ -15,8 +15,8 @@ requests==2.27.1
 setuptools==58.1.0
 update-checker==0.18.0
 urllib3==1.26.8
-asyncpraw=7.5.0
-asyncprawcore=2.3.0
+asyncpraw==7.5.0
+asyncprawcore==2.3.0
 wikipedia==1.4.0
 yarl==1.7.2
 websocket-client==1.2.3

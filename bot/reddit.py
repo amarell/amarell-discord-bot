@@ -66,7 +66,7 @@ class Reddit(commands.Cog):
         await ctx.send(content="Here is your random wallpaper:", embed=embed)
 
     @commands.command()
-    async def testcommand(ctx):
+    async def testcommand(self, ctx):
         """just testing"""
         await ctx.send("just testing! how you doing? ")
 

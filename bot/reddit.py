@@ -67,8 +67,34 @@ class Reddit(commands.Cog):
 
     @commands.command()
     async def testcommand(self, ctx):
-        """just testing"""
-        await ctx.send("just testing! how you doing? ")
+        """Displays random art posts from reddit!"""
+        artworks = []
+
+        subreddit = await reddit.subreddit("art")
+
+        async for submission in subreddit.hot(limit=100):
+            artworks.append(submission)
+
+        random_artwork = random.choice(artworks)
+
+        embed = discord.Embed(
+                title="Artworks from r/art",
+                colour=discord.Colour.dark_gold(), 
+                url="https://www.reddit.com" + random_artwork.permalink, 
+                timestamp=datetime.datetime.utcfromtimestamp(random_artwork.created_utc)
+            )
+
+        embed.set_image(url=random_artwork.url)
+        embed.set_footer(
+                text="Wallpaper posted on reddit on",
+                icon_url="https://www.redditinc.com/assets/images/site/reddit-logo.png"
+            )
+
+        await ctx.send(
+                content="Here is your random artwork from reddit\n" + 
+                        "If you like it please consider supporting the artist", 
+                embed=embed
+            )
 
 def setup(bot):
     bot.add_cog(Reddit(bot))

@@ -1,15 +1,12 @@
-# This example requires the 'members' privileged intents
 
-import datetime
 import discord
 from discord.ext import commands
-import random
 import os
 
 
-description = '''An example bot to showcase the discord.ext.commands extension
-module.
-There are a number of utility commands being showcased here.'''
+description = '''
+Amarell is a multipurpose bot designed for fun by @amar#9535
+'''
 
 intents = discord.Intents().all()
 

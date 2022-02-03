@@ -189,6 +189,34 @@ class Reddit(commands.Cog):
                 embed=embed
             )
 
+    @commands.command()
+    async def programmer_meme(self, ctx):
+        """Gets a random meme from r/ProgrammerHumour"""
+        memes = []
+        subreddit = await reddit.subreddit("programmerhumour", fetch=True)
+
+        async for submission in subreddit.hot(limit=15):
+            memes.append(submission)
+
+        random_meme = random.choice(memes)
+
+        embed = discord.Embed(
+                title=random_meme.title,
+                colour=discord.Colour.orange(), 
+                url="https://www.reddit.com" + random_meme.permalink, 
+                timestamp=datetime.datetime.utcfromtimestamp(random_meme.created_utc)
+            )
+
+        embed.set_image(url=random_meme.url)
+        embed.set_footer(
+                text="Meme posted on reddit on",
+                icon_url="https://www.redditinc.com/assets/images/site/reddit-logo.png"
+            )
+
+        await ctx.send(content="Here is your meme:", embed=embed)
+
+
+
 def setup(bot):
     bot.add_cog(Reddit(bot))
 

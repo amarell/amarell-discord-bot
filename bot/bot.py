@@ -1,7 +1,9 @@
-
 import discord
 from discord.ext import commands
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 description = '''
@@ -17,6 +19,7 @@ bot = commands.Bot(command_prefix='-',
 bot.load_extension('bot_commands')
 bot.load_extension('wiki')
 bot.load_extension('reddit')
+bot.load_extension('merriam')
 
 
 @bot.event
@@ -26,14 +29,5 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-
-@bot.command()
-async def testcommand(ctx):
-    await ctx.send("Hello there change!")
-
-
-@bot.command()
-async def test(ctx):
-    await ctx.send("Hello world")
 
 bot.run(os.environ["discord-api-token"])

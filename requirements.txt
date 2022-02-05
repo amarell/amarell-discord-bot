@@ -16,6 +16,7 @@ idna==3.3
 multidict==6.0.2
 praw==7.5.0
 prawcore==2.3.0
+python-dotenv==0.19.2
 requests==2.27.1
 soupsieve==2.3.1
 typing_extensions==4.0.1

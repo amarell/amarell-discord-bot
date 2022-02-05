@@ -23,5 +23,9 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
+@bot.command()
+async def testcommand(ctx):
+    await ctx.send("Hello there dumbass!")
     
 bot.run(os.environ["discord-api-token"])

@@ -31,4 +31,9 @@ async def on_ready():
 async def testcommand(ctx):
     await ctx.send("Hello there change!")
 
+
+@bot.command()
+async def test(ctx):
+    await ctx.send("Hello world")
+
 bot.run(os.environ["discord-api-token"])

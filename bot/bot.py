@@ -20,6 +20,7 @@ bot.load_extension('bot_commands')
 bot.load_extension('wiki')
 bot.load_extension('reddit')
 bot.load_extension('merriam')
+bot.load_extension('games')
 
 
 @bot.event

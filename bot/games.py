@@ -3,6 +3,7 @@ from urllib.error import ContentTooShortError
 from discord.ext import commands
 import numpy as np
 import discord
+import random
 
 
 class Game(commands.Cog):
@@ -12,8 +13,46 @@ class Game(commands.Cog):
     @commands.command()
     async def hs(self, ctx):
         """Starts a new game of hangman!"""
-        words = []
-        word = "Guardians of the galaxy"
+        words = ["Guardians of the galaxy",
+                 "Titanic", "Prisoners",
+                 "Prometheus", "Saving private Ryan",
+                 "Interstellar", "The Imitation Game",
+                 "Tomorrowland", "Frozen", "Now You See Me",
+                 "Dawn of the Planet of the Apes",
+                 "Ant-Man", "The Conjuring", "Nightcrawler",
+                 "X-Men: Days of the Future Past",
+                 "Pacific Rim", "Inferno", "Sicario",
+                 "The Hunger Games", "Django Unchained",
+                 "Shutter Island", "The Great Gastby",
+                 "The Wolf of Wall Street",
+                 "No Country for Old Men",
+                 "Furious 6", "Whiplash", "The Shallows",
+                 "Into the woods",
+                 "Transformers: Age of Extinction",
+                 "The Revenant", "The Dark Knight Rises",
+                 "Divergent", "Finding Dory",
+                 "10 Cloverfield Lane", "300",
+                 "Ex Machina", "12 Years a Slave",
+                 "Harry Potter and the Deathly Hallows: Part 2",
+                 "Hell or High Water", "The Martian", "Thor",
+                 "Avengers: Age of Ultron", "Warcraft",
+                 "Gone Girl", "Jurassic World",
+                 "Inception", "Zootopia", "The Avengers",
+                 "Pirates of the Caribbean: Dead Man's Chest",
+                 "Inglorious Basterds",
+                 "Kingsman: The Secret Service",
+                 "The Prestige",
+                 "Fifty Shades of Gray",
+                 "The Girl on the Train",
+                 "Sully",
+                 "Batman v Superman: Dawn of Justice",
+                 "Me Before You", "Don't Breathe",
+                 "The Dark Knight",
+                 "John Wick", "Doctor Strange",
+                 "Deadpool", "Arrival", "Passengers",
+                 "The Lost City of Z",
+                 "Fantastic Beasts and Where to Find Them"]
+        word = random.choice(words)
         mistakes = 0
         guessed_letters = []
         progress = ""
@@ -30,21 +69,21 @@ class Game(commands.Cog):
             while(mistakes < 6):
                 msg = await self.bot.wait_for('message', timeout=30)
                 if(len(msg.content) == 1):
-                    if(msg.content in word):
-                        guessed_letters.append(msg.content)
+                    if(msg.content.lower() in word.lower()):
+                        guessed_letters.append(msg.content.lower())
                         unique_guesses = np.unique(guessed_letters)
 
                         progress = ""
                         for i in range(len(word)):
                             if(word[i] == ' '):
                                 progress = progress + " "
-                            elif(word[i] in unique_guesses):
+                            elif(word[i].lower() in unique_guesses):
                                 progress = progress + word[i] + " "
                             else:
                                 progress = progress + "_ "
 
                         if("_" not in progress):
-                            await ctx.send("Well done! The word was **" + progress + "**")
+                            await ctx.send("Well done! The word was **" + word + "**")
                             return
                         else:
                             if mistakes == 0:
@@ -93,7 +132,7 @@ class Game(commands.Cog):
                                 await ctx.send("Your current progress is: ```"+progress+"```")
 
                     else:
-                        guessed_letters.append(msg.content)
+                        guessed_letters.append(msg.content.lower())
                         mistakes = mistakes + 1
                         if mistakes == 0:
                             embed = discord.Embed(title="Hangman", colour=discord.Colour(
@@ -139,7 +178,7 @@ class Game(commands.Cog):
                             await ctx.send(embed=embed)
                         else:
                             await ctx.send("Your current progress is: ```"+progress+"```")
-                elif(msg.content == word):
+                elif(msg.content.lower() == word.lower()):
                     await msg.add_reaction("\u2705")
                     await ctx.send("That's the word we're looking for!")
                     return

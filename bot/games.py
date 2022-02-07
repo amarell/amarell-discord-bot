@@ -12,15 +12,19 @@ class Game(commands.Cog):
     @commands.command()
     async def hs(self, ctx):
         """Starts a new game of hangman!"""
-        word = "hangman"
+        words = []
+        word = "Guardians of the galaxy"
         mistakes = 0
         guessed_letters = []
         progress = ""
 
         for i in range(len(word)):
-            progress = progress + "\_ "
+            if(word[i] == ' '):
+                progress = progress + " "
+            else:
+                progress = progress + "_ "
 
-        await ctx.send("This is the chosen word: \n{0}".format(progress))
+        await ctx.send("This is the chosen word: \n```{0}```".format(progress))
 
         try:
             while(mistakes < 6):
@@ -32,7 +36,9 @@ class Game(commands.Cog):
 
                         progress = ""
                         for i in range(len(word)):
-                            if(word[i] in unique_guesses):
+                            if(word[i] == ' '):
+                                progress = progress + " "
+                            elif(word[i] in unique_guesses):
                                 progress = progress + word[i] + " "
                             else:
                                 progress = progress + "_ "
@@ -134,6 +140,7 @@ class Game(commands.Cog):
                         else:
                             await ctx.send("Your current progress is: ```"+progress+"```")
                 elif(msg.content == word):
+                    await msg.add_reaction("\u2705")
                     await ctx.send("That's the word we're looking for!")
                     return
                 else:

@@ -92,12 +92,30 @@ class Game(commands.Cog):
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
 
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                    inline=False
+                                )
+
                                 await ctx.send(embed=embed)
                             elif mistakes == 1:
                                 embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                     0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............. \n.┃.............. \n /-\\")
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
+
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```{0}```".format(guessed_letters_string),
+                                    inline=False
+                                )
 
                                 await ctx.send(embed=embed)
                             elif mistakes == 2:
@@ -106,12 +124,30 @@ class Game(commands.Cog):
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
 
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                    inline=False
+                                )
+
                                 await ctx.send(embed=embed)
                             elif mistakes == 3:
                                 embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                     0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............./ | \n.┃.............. \n /-\\")
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
+
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                    inline=False
+                                )
 
                                 await ctx.send(embed=embed)
                             elif mistakes == 4:
@@ -120,12 +156,30 @@ class Game(commands.Cog):
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
 
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                    inline=False
+                                )
+
                                 await ctx.send(embed=embed)
                             elif mistakes == 5:
                                 embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                     0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............./ | \\ \n.┃............../  \n /-\\")
                                 embed.add_field(
                                     name="Current word:", value="```"+progress+"```")
+
+                                guessed_letters_string = ""
+                                for letter in guessed_letters:
+                                    guessed_letters_string = guessed_letters_string + letter + ", "
+
+                                embed.add_field(
+                                    name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                    inline=False
+                                )
 
                                 await ctx.send(embed=embed)
                             else:
@@ -140,12 +194,30 @@ class Game(commands.Cog):
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
 
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
+
                             await ctx.send(embed=embed)
                         elif mistakes == 1:
                             embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                 0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............. \n.┃.............. \n /-\\")
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
+
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
 
                             await ctx.send(embed=embed)
                         elif mistakes == 2:
@@ -154,12 +226,30 @@ class Game(commands.Cog):
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
 
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
+
                             await ctx.send(embed=embed)
                         elif mistakes == 3:
                             embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                 0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............./ | \n.┃.............. \n /-\\")
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
+
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
 
                             await ctx.send(embed=embed)
                         elif mistakes == 4:
@@ -168,12 +258,30 @@ class Game(commands.Cog):
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
 
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
+
                             await ctx.send(embed=embed)
                         elif mistakes == 5:
                             embed = discord.Embed(title="Hangman", colour=discord.Colour(
                                 0x9de20e), description=". ┌─────┐\n.┃...............┋\n.┃...............┋\n.┃.............😲\n.┃............./ | \\ \n.┃............../  \n /-\\")
                             embed.add_field(
                                 name="Current word:", value="```"+progress+"```")
+
+                            guessed_letters_string = ""
+                            for letter in guessed_letters:
+                                guessed_letters_string = guessed_letters_string + letter + ", "
+
+                            embed.add_field(
+                                name="Guessed letters:", value="```" + guessed_letters_string + "```",
+                                inline=False
+                            )
 
                             await ctx.send(embed=embed)
                         else:

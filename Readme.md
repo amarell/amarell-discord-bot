@@ -33,10 +33,11 @@ Some of commands that the bot supports are the following:
 - etc.
 
 # APIs used:
+- [Discord.py](https://github.com/Rapptz/discord.py) - An API wrapper for Discord written in Python.
 
-- [PRAW]([GitHub - praw-dev/praw: PRAW, an acronym for &quot;Python Reddit API Wrapper&quot;, is a python package that allows for simple access to Reddit&#39;s API.](https://github.com/praw-dev/praw)) - Python Reddit API Wrapper
+- [PRAW](https://github.com/praw-dev/praw) - Python Reddit API Wrapper
 
-- [Wikipedia ]([GitHub - goldsmith/Wikipedia: A Pythonic wrapper for the Wikipedia API](https://github.com/goldsmith/Wikipedia))- Wikipedia API Wrapper
+- [Wikipedia ](https://github.com/goldsmith/Wikipedia)- Wikipedia API Wrapper
 
 - MERRIAM-WEBSTER'S COLLEGIATE DICTIONARY
 

@@ -41,4 +41,6 @@ Some of commands that the bot supports are the following:
 
 - MERRIAM-WEBSTER'S COLLEGIATE DICTIONARY
 
+# Have fun with the bot!
+
 

@@ -33,6 +33,7 @@ Some of commands that the bot supports are the following:
 - etc.
 
 # APIs used:
+- [Discord.py](https://github.com/Rapptz/discord.py) - An API wrapper for Discord written in Python.
 
 - [PRAW](https://github.com/praw-dev/praw) - Python Reddit API Wrapper
 

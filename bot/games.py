@@ -10,8 +10,8 @@ class Game(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def hs(self, ctx):
+    @commands.command(aliases=["hs"])
+    async def hangman_start(self, ctx):
         """Starts a new game of hangman!"""
         words = ["Guardians of the galaxy",
                  "Titanic", "Prisoners",

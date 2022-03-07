@@ -1,3 +1,4 @@
+from ast import alias
 import requests
 from discord.ext import commands
 import json
@@ -6,7 +7,7 @@ class Facts(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["ff"])
     async def fun_fact(self, ctx):
         """Responds with a random fun fact"""
         response = requests.get("https://asli-fun-fact-api.herokuapp.com/")

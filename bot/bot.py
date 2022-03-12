@@ -22,6 +22,7 @@ bot.load_extension('reddit')
 bot.load_extension('merriam')
 bot.load_extension('games')
 bot.load_extension('facts')
+bot.load_extension('trivia')
 
 
 @bot.event

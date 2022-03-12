@@ -40,6 +40,8 @@ Some of commands that the bot supports are the following:
 - [Wikipedia ](https://github.com/goldsmith/Wikipedia)- Wikipedia API Wrapper
 
 - MERRIAM-WEBSTER'S COLLEGIATE DICTIONARY
+  
+- [Fun Facts Public API](https://asli-fun-fact-api.herokuapp.com/)
 
 # Have fun with the bot!
 

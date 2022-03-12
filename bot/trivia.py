@@ -11,13 +11,61 @@ class Trivia(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["ts"])
-    async def trivia_start(self, ctx, difficulty: str = None):
-        """Responds with a trivia question"""
+    async def trivia_start(self, ctx, difficulty: str = None, question_category: str = None):
+        """
+        Responds with a trivia question
+
+        You have 12 seconds to answer.
+
+        Available difficulties are: easy, medium, hard
+
+        Available categories are: (For random category, simply don't enter any)
+
+        Entertainment: 
+         - books
+         - movies
+         - music
+         - games
+         - art
+
+        Science:
+         - science
+         - computer_science
+         - maths
+         - mythology
+         - geography
+         - history
+
+        Sports:
+         - sports
+
+         + many others...
+        """
+
+        categories = {
+                'books': 10, 
+                'movies': 11, 
+                'music': 12, 
+                'games': 15, 
+                'science': 17, 
+                'computer_science': 18,
+                'maths': 19,
+                'mythology': 20,
+                'sports': 21,
+                'geography': 22,
+                'history': 23,
+                'art': 25,
+                'celebrities': 26
+            }
         
         if(difficulty is None) :
             await ctx.send("You have to provide the difficulty. It can be ```easy, medium or hard```")
         else: 
-            response = requests.get("https://opentdb.com/api.php?amount=1&type=multiple&difficulty=" + difficulty)
+            api_url = "https://opentdb.com/api.php?amount=1&type=multiple&difficulty=" + difficulty
+            if (question_category):
+                api_url = api_url + "&category=" + str(categories[question_category])
+
+            response = requests.get(api_url)
 
             trivia_json = json.dumps(response.json(), sort_keys=True, indent=4)
             trivia_question = json.loads(trivia_json)
@@ -68,7 +116,7 @@ class Trivia(commands.Cog):
             await ctx.send(embed=embed)
 
             try: 
-                msg = await self.bot.wait_for('message', timeout=10)
+                msg = await self.bot.wait_for('message', timeout=12)
                 if(len(msg.content) == 1):
                     if(msg.content.lower() == correct_letter):
                         await ctx.send("That's right! Congratulations!")

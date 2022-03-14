@@ -16,6 +16,8 @@ Some of commands that the bot supports are the following:
 
 - `-hs` - starts a new game of hangman.
 
+- `-ts` - starts a new trivia question
+
 - `-define {length}` - defines the provided word using definitions by Merriam Webster's dictionary.
 
 - `-generate_password {length}` - generates a sequence of random ASCII characters with the provided length
@@ -42,6 +44,8 @@ Some of commands that the bot supports are the following:
 - MERRIAM-WEBSTER'S COLLEGIATE DICTIONARY
   
 - [Fun Facts Public API](https://asli-fun-fact-api.herokuapp.com/)
+
+- [Open Trivia API](https://opentdb.com/api_config.php)
 
 # Have fun with the bot!
 

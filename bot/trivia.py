@@ -116,12 +116,17 @@ class Trivia(commands.Cog):
             await ctx.send(embed=embed)
 
             try: 
-                msg = await self.bot.wait_for('message', timeout=12)
-                if(len(msg.content) == 1):
-                    if(msg.content.lower() == correct_letter):
-                        await ctx.send("That's right! Congratulations!")
+                while(True):
+                    msg = await self.bot.wait_for('message', timeout=12)
+                    if(len(msg.content) == 1):
+                        if(msg.content.lower() == correct_letter):
+                            await ctx.send("That's right! Congratulations!")
+                            break;
+                        else:
+                            await ctx.send("Close but no cigar! The correct answer is " + correct_letter)
+                            break;
                     else:
-                        await ctx.send("Close but no cigar! The correct answer is " + correct_letter)
+                        await ctx.send("Not a valid guess. Try answering with A,B,C, or D. ")
 
 
             except asyncio.TimeoutError:

@@ -39,7 +39,7 @@ Some of commands that the bot supports are the following:
 
 - [PRAW](https://github.com/praw-dev/praw) - Python Reddit API Wrapper
 
-- [Wikipedia ](https://github.com/goldsmith/Wikipedia)- Wikipedia API Wrapper
+- [Wikipedia](https://github.com/goldsmith/Wikipedia)- Wikipedia API Wrapper
 
 - MERRIAM-WEBSTER'S COLLEGIATE DICTIONARY
   

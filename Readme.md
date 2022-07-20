@@ -30,7 +30,7 @@ Some of commands that the bot supports are the following:
 
 - a few more commands that work with the Reddit's API, commands for memes from different subreddits
 
-- `-lookup {some_term}` - find the Wikipedia article that matches the given term and type out first couple of sentences in the chat. For example `-lookup Obama` will find the article about Obama type some information about him in the chat where the command was called from.
+- `-lookup {some_term}` - find the Wikipedia article that matches the given term and type out first couple of sentences in the chat. For example `-lookup Obama` will find the article about Obama type some information about him in the channel where the command was called from.
 
 - etc.
 

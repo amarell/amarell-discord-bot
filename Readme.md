@@ -18,7 +18,7 @@ Some of commands that the bot supports are the following:
 
 - `-ts` - starts a new trivia question
 
-- `-define {length}` - defines the provided word using definitions by Merriam Webster's dictionary.
+- `-define {word}` - defines the provided word using definitions by Merriam Webster's dictionary.
 
 - `-generate_password {length}` - generates a sequence of random ASCII characters with the provided length
 
